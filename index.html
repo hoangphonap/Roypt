@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>  
+<head>
+  <title>Trang của tôi</title>
+  <style>
+    body{ 
+      background-color:#f0f8ff;
+      text-align: center;
+    }
+    h2{
+      color:rgb(235, 143, 159);
+    }
+    p{
+      color:#333;
+      font-size: 18px;
+    }
+    a{
+      color:red;
+      text-decoration: none;
+    }
+    .header{
+      background-color: pink;
+      color:white;
+      padding:15px;
+    }
+    .content{
+      text-align: center;
+      margin:20px;
+    }
+    .footer{
+      background-color: black;
+      color:white;
+      padding:10px;
+      margin-top: 20px;
+    }
+    button {
+  padding: 8px 15px;
+  background-color: red;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+#danhsach {
+  list-style: none;
+  padding: 0;
+}
+
+#danhsach li {
+  background: blue;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+#danhsach button {
+  margin-left: 10px;
+  padding: 5px 8px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+#danhsach li:hover {
+  background: #ddd;
+}
+button:nth-child(2) {
+  background: green;
+  color: white;
+}
+
+button:nth-child(3) {
+  background: red;
+  color: white;
+}
+    </style>
+</head>
+<body>
+  <div class="header">
+
+  <h2>Chuyện của chúng mình</h2>
+<input id="ten"placeholder="Tên của Bạn">
+<button onclick="chao()">Click</button>
+<h2>To-do list</h2>
+
+<input id="viec" onkeypress="if(event.key==='Enter') themViec()">
+<button onclick="themViec()">Thêm</button>
+<button onclick="xoaHet()">Xóa tất cả</button>
+<ul id="danhsach"></ul>
+</div>
+
+<div class="content">
+  <p>Chúng mình là Trần Hoàng và Kiều Trang</p>
+
+  <p>Hoàng
+    <img src=https://static.xx.fbcdn.net/images/emoji.php/v9/t72/1/32/2764.png>
+    Trang 
+  </p>
+
+  <img src="https://picsum.photos/300">
+
+  
+
+  <p>Kết nối với tôi:</p>
+
+  <a href="https://facebook.com/hoangdang.pt" target="_blank">Facebook</a>
+  <br>
+  <br>
+  <a href="https://tiktok.com/@hoang_dang" target="_blank">Tóp Tóp</a>
+
+</div>
+
+<div class="footer">
+
+  <p>© 2026 Hoàng</p>
+
+</div>
+<script>
+function chao() {
+  let ten = document.getElementById("ten").value;
+
+  if (ten === "") {
+    alert("Bạn chưa nhập tên!");
+  } else {
+    alert("Xin chào " + ten + " ❤️");
+  }
+}
+</script>
+<script>
+let danhsach = JSON.parse(localStorage.getItem("todo")) || [];
+
+function hienThi() {
+  let ul = document.getElementById("danhsach");
+  ul.innerHTML = "";
+
+  danhsach.forEach((viec, index) => {
+    let li = document.createElement("li");
+
+    li.innerHTML = `
+      ${viec.text}
+      <button onclick="hoanthanh(${index})">✔</button>
+      <button onclick="xoaViec(${index})">❌</button>
+    `;
+
+    if (viec.done) {
+      li.style.textDecoration = "line-through";
+      li.style.color = "gray";
+      li.style.background = "#ddd";
+    }
+
+    ul.appendChild(li);
+  });
+}
+
+function themViec() {
+  let input = document.getElementById("viec");
+  let text = input.value;
+
+  if (text === "") {
+    alert("Bạn chưa nhập việc!");
+    return;
+  }
+
+  danhsach.push({ text: text, done: false });
+
+  localStorage.setItem("todo", JSON.stringify(danhsach));
+
+  input.value = "";
+  hienThi();
+}
+
+function xoaViec(index) {
+  danhsach.splice(index, 1);
+  localStorage.setItem("todo", JSON.stringify(danhsach));
+  hienThi();
+}
+
+function hoanthanh(index) {
+  danhsach[index].done = !danhsach[index].done;
+  localStorage.setItem("todo", JSON.stringify(danhsach));
+  hienThi();
+}
+
+hienThi();
+function xoaHet() {
+  danhsach = [];
+  localStorage.setItem("todo", JSON.stringify(danhsach));
+  hienThi();
+}
+</script>
+</body>
+</html>
