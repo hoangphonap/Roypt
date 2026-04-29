@@ -85,6 +85,28 @@ button:nth-child(3) {
   box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* đổ bóng */
   max-width: 400px;
   margin: auto;
+} 
+ button {
+  transition: 0.3s;
+}
+
+button:hover {
+  transform: scale(1.1);
+  background: darkred;
+}
+ #danhsach li {
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }   
     </style>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
