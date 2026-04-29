@@ -176,6 +176,7 @@ button:hover {
 <body>
   <div class="header">
 <button onclick="doiMode()">🌙 Dark Mode</button>
+ <button onclick="batNhac()">🎵 Bật nhạc</button>   
   <h2>Chuyện của chúng mình</h2>
 <input id="ten" placeholder="Nhập tên người yêu...">
 <button onclick="luuTen()">💾 Lưu</button>
@@ -328,6 +329,18 @@ function xoaHet() {
 if (localStorage.getItem("mode") === "dark") {
   document.body.classList.add("dark");
 }
+ function batNhac() {
+  let nhac = document.getElementById("nhac");
+  nhac.volume = 0.3;
+  if (nhac.paused) {
+    nhac.play();
+    event.target.innerText = "🔇 Tắt nhạc";
+  } else {
+    nhac.pause();
+    event.target.innerText = "🎵 Bật nhạc";
+  }
+} 
 </script>
+<audio id="nhac" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"></audio>
 </body>
 </html>
