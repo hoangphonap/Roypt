@@ -47,7 +47,7 @@
 }
 
 #danhsach li {
-  background: blue;
+  background: #f9f9f9;
   margin: 10px;
   padding: 10px;
   border-radius: 8px;
@@ -72,6 +72,12 @@ button:nth-child(3) {
   background: red;
   color: white;
 }
+.btn-them {
+  background: green;
+}
+.btn-xoa {
+  background: red;
+}
     </style>
 </head>
 <body>
@@ -83,8 +89,8 @@ button:nth-child(3) {
 <h2>Việc hôm nay</h2>
 
 <input id="viec" onkeypress="if(event.key==='Enter') themViec()">
-<button onclick="themViec()">Thêm</button>
-<button onclick="xoaHet()">Xóa tất cả</button>
+<button class="btn-them" onclick="themViec()">Thêm</button>
+<button class="btn-xoa" onclick="xoaHet()">Xóa tất cả</button>
 <ul id="danhsach"></ul>
 </div>
 
@@ -92,7 +98,7 @@ button:nth-child(3) {
   <p>Ngày mới tốt hơn</p>
 
   <p>Hoàng
-    <img src=https://static.xx.fbcdn.net/images/emoji.php/v9/t72/1/32/2764.png>
+    <img src="https://static.xx.fbcdn.net/images/emoji.php/v9/t72/1/32/2764.png">
     Trang 
   </p>
 
