@@ -170,6 +170,11 @@ button:hover {
   background: #333;
   color: white;
 }  
+#anhHien {
+  border-radius: 15px;
+  margin-top: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}    
     </style>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
@@ -198,7 +203,9 @@ button:hover {
     Trang 
   </p>
 
-  <img src="https://picsum.photos/300">
+  <input type="file" id="chonAnh" accept="image/*">
+<br><br>
+<img id="anhHien" src="" style="display:none; max-width:100%;">
 
   
 
@@ -331,7 +338,7 @@ if (localStorage.getItem("mode") === "dark") {
 }
  function batNhac() {
   let nhac = document.getElementById("nhac");
-  nhac.volume = 0.3;
+  nhac.volume = 0.1;
   if (nhac.paused) {
     nhac.play();
     event.target.innerText = "🔇 Tắt nhạc";
@@ -339,6 +346,34 @@ if (localStorage.getItem("mode") === "dark") {
     nhac.pause();
     event.target.innerText = "🎵 Bật nhạc";
   }
+} 
+ let inputAnh = document.getElementById("chonAnh");
+let img = document.getElementById("anhHien");
+
+// khi chọn ảnh
+inputAnh.addEventListener("change", function() {
+  let file = this.files[0];
+
+  if (file) {
+    let reader = new FileReader();
+
+    reader.onload = function(e) {
+      img.src = e.target.result;
+      img.style.display = "block";
+
+      // lưu vào localStorage
+      localStorage.setItem("anh", e.target.result);
+    };
+
+    reader.readAsDataURL(file);
+  }
+});
+
+// load lại vẫn còn ảnh
+let savedImg = localStorage.getItem("anh");
+if (savedImg) {
+  img.src = savedImg;
+  img.style.display = "block";
 } 
 </script>
 <audio id="nhac" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"></audio>
