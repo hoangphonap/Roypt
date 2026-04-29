@@ -47,7 +47,7 @@
 }
 
 #danhsach li {
-  background: yellow;
+  background: white;
   margin: 10px;
   padding: 10px;
   border-radius: 8px;
@@ -73,10 +73,10 @@ button:nth-child(3) {
   color: white;
 }
 .btn-them {
-  background: green;
+  background:green;
 }
 .btn-xoa {
-  background: red;
+  background:red;
 }
  .content {
   background: white;
@@ -92,6 +92,13 @@ button:nth-child(3) {
 
 button:hover {
   transform: scale(1.1);
+}
+
+.btn-them:hover {
+  background: darkgreen;
+}
+
+.btn-xoa:hover {
   background: darkred;
 }
  #danhsach li {
@@ -107,7 +114,18 @@ button:hover {
     opacity: 1;
     transform: translateY(0);
   }
-}   
+} 
+   .done-btn {
+  background: green;
+}
+
+.delete-btn {
+  background: red;
+}
+  img {
+  max-width: 100%;
+  border-radius: 10px;
+}  
     </style>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
@@ -174,11 +192,10 @@ function hienThi() {
     let li = document.createElement("li");
 
     li.innerHTML = `
-      ${viec.text}
-      <button onclick="hoanthanh(${index})">✔</button>
-      <button onclick="xoaViec(${index})">❌</button>
-    `;
-
+  ${viec.text}
+  <button class="done-btn" onclick="hoanthanh(${index})">✔</button>
+  <button class="delete-btn" onclick="xoaViec(${index})">❌</button>
+`;
     if (viec.done) {
       li.style.textDecoration = "line-through";
       li.style.color = "gray";
