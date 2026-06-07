@@ -1,6 +1,6 @@
 
 // const IMAGE_LINKS = ["link1", "link2", "link3"...]; // tạo folder ảnh rồi dán link từng ảnh vào đây 
-const IMAGE_LINKS = [];
+const IMAGE_LINKS = []; 
 for(let i = 1; i <= 60; i++) {
   IMAGE_LINKS.push(`https://picsum.photos/seed/${i * 10}/800/1200`);
 }
@@ -21,10 +21,10 @@ let t = 0;
 
 let isFormingText = false;
 let warpSpeed = false; 
-const textSequence = ["Chúc Mừng", " Ngày 1-6 Vui Vẻ!", "Các Bạn Là", "Điều Kỳ Diệu", "Trong Cuộc Sống Của Mình!"];
+const textSequence = ["Kiều Trang", "Em Là", "Điều Kỳ Diệu", "Trong Cuộc Sống Của Anh!"];
 
 // Nội dung bức thư HTML (Bạn có thể tự do chỉnh sửa)
-const letterContent = `Cảm ơn các bạn đã xuất hiện trong cuộc sống của mình —<br>mỗi khoảnh khắc bên bạn đều là <em>điều kỳ diệu nhỏ</em> mà mình trân trọng từng ngày.<br><br>Dù là lúc vui hay buồn,<br>mình luôn muốn các bạn biết rằng<br><em>các bạn thật sự quan trọng</em>. 🩷`;
+const letterContent = `Cảm ơn Em đã xuất hiện trong cuộc sống của Anh —<br>mỗi khoảnh khắc bên Em đều là điều kỳ diệu nhỏ mà Anh trân trọng từng ngày.<br><br>Dù là lúc vui hay buồn,<br>Anh luôn muốn Em biết rằng<br><Em thật sự rất quan trọng. 🩷`;
 
 function rand(a, b) { return a + Math.random() * (b - a); }
 function randInt(a, b) { return Math.floor(rand(a, b + 1)); }
