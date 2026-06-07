@@ -1,381 +1,56 @@
 <!DOCTYPE html>
-<html>  
+<html lang="vi">
 <head>
-  <title>Trang của tôi</title>
-  <style>
-    body{ 
-      background-color:#f0f8ff;
-      text-align: center;
-    }
-    h2{
-      color:rgb(235, 143, 159);
-    }
-    p{
-      color:#333;
-      font-size: 18px;
-    }
-    a{
-      color:red;
-      text-decoration: none;
-    }
-    .header{
-      background-color: pink;
-      color:white;
-      padding:15px;
-    }
-    .content{
-      text-align: center;
-      margin:20px;
-    }
-    .footer{
-      background-color: black;
-      color:white;
-      padding:10px;
-      margin-top: 20px;
-    }
-    button {
-  padding: 8px 15px;
-  background-color: red;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-#danhsach {
-  list-style: none;
-  padding: 0;
-}
-
-#danhsach li {
-  background: navy blue;
-  margin: 10px;
-  padding: 10px;
-  border-radius: 8px;
-}
-
-#danhsach button {
-  margin-left: 10px;
-  padding: 5px 8px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-#danhsach li:hover {
-  background: #ddd;
-}
-button:nth-child(2) {
-  background: green;
-  color: white;
-}
-
-button:nth-child(3) {
-  background: red;
-  color: white;
-}
-.btn-them {
-  background:green;
-}
-.btn-xoa {
-  background:red;
-}
- .content {
-  background: white;
-  padding: 20px;
-  border-radius: 15px;   /* bo góc */
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* đổ bóng */
-  max-width: 400px;
-  margin: auto;
-} 
- button {
-  transition: 0.3s;
-}
-
-button:hover {
-  transform: scale(1.1);
-}
-
-.btn-them:hover {
-  background: darkgreen;
-}
-
-.btn-xoa:hover {
-  background: darkred;
-}
- #danhsach li {
-  animation: fadeIn 0.3s ease;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-} 
-   .done-btn {
-  background: green;
-}
-
-.delete-btn {
-  background: red;
-}
-  img {
-  max-width: 100%;
-  border-radius: 10px;
-}
-  .heart {
-  position: fixed;
-  font-size: 20px;
-  animation: bay 1s linear forwards;
-}
-
-@keyframes bay {
-  0% {
-    transform: translateY(0) scale(1);
-    opacity: 1;
-  }
-  100% {
-    transform: translateY(-100px) scale(1.5);
-    opacity: 0;
-  }
-} 
-  .dark {
-  background-color: #121212;
-  color: white;
-}
-
-.dark .header {
-  background-color: #1e1e1e;
-}
-
-.dark .content {
-  background-color: #222;
-  color: white;
-}
-
-.dark .footer {
-  background-color: #000;
-}
-
-.dark input {
-  background-color: #333;
-  color: white;
-  border: 1px solid #555;
-}
-
-.dark #danhsach li {
-  background: #333;
-  color: white;
-}  
-#anhHien {
-  border-radius: 15px;
-  margin-top: 10px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-}    
-    </style>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Món Quà Nhỏ</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="header">
-<button onclick="doiMode()">🌙 Dark Mode</button>
- <button onclick="batNhac()">🎵 Bật nhạc</button>   
-  <h2>Chuyện của chúng mình</h2>
-<input id="ten" placeholder="Nhập tên người yêu...">
-<button onclick="luuTen()">💾 Lưu</button>
-<p id="hienten"></p>
-<h2>Việc hôm nay</h2>
 
-<input id="viec" placeholder="Nhập việc..." onkeypress="if(event.key==='Enter') themViec()">
-<button class="btn-them" onclick="themViec()">Thêm</button>
-<button class="btn-xoa" onclick="xoaHet()">Xóa tất cả</button>
-<ul id="danhsach"></ul>
-   
+<canvas id="galaxy"></canvas>
+
+<div id="intro">
+  <p class="hold-hint">✦ một điều nhỏ dành riêng cho bạn ✦</p>
+  <div class="hold-btn-wrap">
+    <div class="hold-btn" id="holdBtn">
+      <div class="progress-ring" id="progressRing"></div>
+      <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+    </div>
+    <span style="color:rgba(255,179,209,0.6);font-size:13px;letter-spacing:1px;">Giữ để bắt đầu</span>
+  </div>
 </div>
 
-<div class="content">
-  <p>Ngày mới tốt hơn</p>
-
-  <p>Hoàng
-    <img src="https://static.xx.fbcdn.net/images/emoji.php/v9/t72/1/32/2764.png">
-    Trang 
-  </p>
-
-  <input type="file" id="chonAnh" accept="image/*">
-<br><br>
-<img id="anhHien" src="" style="display:none; max-width:100%;">
-
-  
-
-  <p>Kết nối với tôi:</p>
-
-  <a href="https://facebook.com/hoangdang.pt" target="_blank">Facebook</a>
-  <br>
-  <br>
-  <a href="https://tiktok.com/@hoang_dang" target="_blank">Tóp Tóp</a>
-
+<div id="continue-wrap" class="continue-wrap">
+  <button id="continueBtn" class="continue-btn">Tiếp tục ✦</button>
 </div>
 
-<div class="footer">
-
-  <p>© 2026 Hoàng</p>
-
+<div id="sphere-zone" class="sphere-zone">
+  <div id="sphere-scene" class="sphere-scene"></div>
+  <button id="openCardBtn" class="continue-btn sphere-btn">Mở thư 🌸</button>
 </div>
-<script>
-function luuTen() {
-  let ten = document.getElementById("ten").value;
 
-  if (ten === "") {
-    alert("Bạn chưa nhập tên!");
-    return;
-  }
+<div id="image-modal" class="image-modal">
+  <span class="close-modal" id="closeModal">&times;</span>
+  <img class="modal-content" id="zoomedImg">
+</div>
 
-  localStorage.setItem("tenNY", ten);
-  hienTen();
-}
+<div class="hearts-rain" id="heartsRain"></div>
 
-function hienTen() {
-  let ten = localStorage.getItem("tenNY");
+<div id="message-screen">
+  <div class="message-card">
+    <div class="msg-deco">🩷</div>
+    <div class="msg-title">Gửi đến bạn</div>
+    <div class="msg-body" id="msgBody"></div>
+    <div class="msg-sign" id="msgSign">— Khan ✦</div>
+    <button class="back-btn" id="backBtn">← Quay lại</button>
+  </div>
+</div>
 
-  if (ten) {
-    document.getElementById("hienten").innerText = "💖 Người yêu của tôi: " + ten;
-  }
-}
-
-// load lại vẫn hiện
-hienTen();
-</script>
-<script>
-let danhsach = JSON.parse(localStorage.getItem("todo")) || [];
-
-function hienThi() {
-  let ul = document.getElementById("danhsach");
-  ul.innerHTML = "";
-
-  danhsach.forEach((viec, index) => {
-    let li = document.createElement("li");
-
-    li.innerHTML = `
-  ${viec.text}
-  <button class="done-btn" onclick="hoanthanh(${index})">✔</button>
-  <button class="delete-btn" onclick="xoaViec(${index})">❌</button>
-`;
-    if (viec.done) {
-      li.style.textDecoration = "line-through";
-      li.style.color = "gray";
-      li.style.background = "#ddd";
-    }
-
-    ul.appendChild(li);
-  });
-}
-
-function themViec() {
-  let input = document.getElementById("viec");
-  let text = input.value;
-
-  if (text === "") {
-    alert("Bạn chưa nhập việc!");
-    return;
-  }
-
-  danhsach.push({ text: text, done: false });
-
-  localStorage.setItem("todo", JSON.stringify(danhsach));
-
-  input.value = "";
-  hienThi();
-}
-
-function xoaViec(index) {
-  danhsach.splice(index, 1);
-  localStorage.setItem("todo", JSON.stringify(danhsach));
-  hienThi();
-}
-
-function hoanthanh(index) {
-  danhsach[index].done = !danhsach[index].done;
-  localStorage.setItem("todo", JSON.stringify(danhsach));
-  hienThi();
-}
-
-hienThi();
-function xoaHet() {
-  danhsach = [];
-  localStorage.setItem("todo", JSON.stringify(danhsach));
-  hienThi();
-}
-  document.addEventListener("click", function(e) {
-  let heart = document.createElement("div");
-  heart.innerHTML = "❤️";
-  heart.className = "heart";
-
-  heart.style.left = e.clientX + "px";
-  heart.style.top = e.clientY + "px";
-
-  document.body.appendChild(heart);
-
-  setTimeout(() => {
-    heart.remove();
-  }, 1000);
-});
-  function doiMode() {
-  document.body.classList.toggle("dark");
-
-  // lưu trạng thái
-  if (document.body.classList.contains("dark")) {
-    localStorage.setItem("mode", "dark");
-  } else {
-    localStorage.setItem("mode", "light");
-  }
-}
-
-// load lại vẫn giữ dark mode
-if (localStorage.getItem("mode") === "dark") {
-  document.body.classList.add("dark");
-}
- function batNhac() {
-  let nhac = document.getElementById("nhac");
-  nhac.volume = 0.1;
-  if (nhac.paused) {
-    nhac.play();
-    event.target.innerText = "🔇 Tắt nhạc";
-  } else {
-    nhac.pause();
-    event.target.innerText = "🎵 Bật nhạc";
-  }
-} 
- let inputAnh = document.getElementById("chonAnh");
-let img = document.getElementById("anhHien");
-
-// khi chọn ảnh
-inputAnh.addEventListener("change", function() {
-  let file = this.files[0];
-
-  if (file) {
-    let reader = new FileReader();
-
-    reader.onload = function(e) {
-      img.src = e.target.result;
-      img.style.display = "block";
-
-      // lưu vào localStorage
-      localStorage.setItem("anh", e.target.result);
-    };
-
-    reader.readAsDataURL(file);
-  }
-});
-
-// load lại vẫn còn ảnh
-let savedImg = localStorage.getItem("anh");
-if (savedImg) {
-  img.src = savedImg;
-  img.style.display = "block";
-} 
-</script>
-<audio id="nhac" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"></audio>
+<script src="script.js"></script>
 </body>
+
+<audio id= "bgMusic" loop>
+    <source src="./audio/Nơi Này Có Anh.mp3" type="audio/mpeg">
+</audio>
 </html>
