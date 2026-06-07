@@ -24,7 +24,7 @@ let warpSpeed = false;
 const textSequence = ["Kiều Trang", "Em Là", "Điều Kỳ Diệu", "Trong Cuộc Sống Của Anh!"];
 
 // Nội dung bức thư HTML (Bạn có thể tự do chỉnh sửa)
-const letterContent = `Cảm ơn Em đã xuất hiện trong cuộc sống của Anh —<br>mỗi khoảnh khắc bên Em đều là điều kỳ diệu nhỏ mà Anh trân trọng từng ngày.<br><br>Dù là lúc vui hay buồn,<br>Anh luôn muốn Em biết rằng<br><Em thật sự rất quan trọng. 🩷`;
+const letterContent = `Cảm ơn Em đã xuất hiện trong cuộc sống của Anh —<br>mỗi khoảnh khắc bên Em đều là điều kỳ diệu nhỏ mà Anh trân trọng từng ngày.<br><br>Dù là lúc vui hay buồn,<br>Anh luôn muốn Em biết rằng<br><br>Em thật sự rất quan trọng.<br><br>🩷<br>`;
 
 function rand(a, b) { return a + Math.random() * (b - a); }
 function randInt(a, b) { return Math.floor(rand(a, b + 1)); }
